@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Panel administratora</title>
+
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark"><div class="container-fluid"><a class="navbar-brand" href="#">Panel administratora</a><span class="navbar-text text-white">System informatyczny szkoły</span></div></nav>
+<div class="container-fluid py-4">
+    <div class="row g-4">
+        <aside class="col-12 col-lg-2">
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action active" href="#dashboard">Pulpit</a>
+                <a class="list-group-item list-group-item-action" href="#zgloszenia">Zgłoszenia</a>
+                <a class="list-group-item list-group-item-action" href="#nowe">Dodaj zgłoszenie</a>
+            </div>
+        </aside>
+        <main class="col-12 col-lg-10" id="dashboard">
+            <h1 class="h2 mb-4">Przegląd systemu</h1>
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="text-secondary mb-1">Uczniowie</p><p class="display-6 fw-semibold mb-0">842</p></div></div></div>
+                <div class="col-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="text-secondary mb-1">Projekty</p><p class="display-6 fw-semibold mb-0">36</p></div></div></div>
+                <div class="col-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="text-secondary mb-1">Użytkownicy</p><p class="display-6 fw-semibold mb-0">910</p></div></div></div>
+                <div class="col-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="text-secondary mb-1">Zgłoszenia</p><p class="display-6 fw-semibold mb-0" id="ticketCount">3</p></div></div></div>
+            </div>
+            <div class="alert alert-info" role="alert">System działa poprawnie. Ostatnia aktualizacja: 24.11.2026.</div>
+            <div class="row g-4">
+                <section class="col-12 col-xl-8" id="zgloszenia">
+                    <div class="d-flex flex-column flex-md-row justify-content-between gap-2 mb-3"><h2 class="h4 mb-0">Ostatnie zgłoszenia</h2><div class="d-flex gap-2"><input id="ticketSearch" class="form-control" type="search" placeholder="Szukaj po nazwie" aria-label="Szukaj po nazwie"><select id="statusFilter" class="form-select" aria-label="Filtruj status"><option value="all">Wszystkie statusy</option><option value="Nowe">Nowe</option><option value="W trakcie">W trakcie</option><option value="Zamknięte">Zamknięte</option></select></div></div>
+                    <div class="table-responsive"><table class="table table-striped table-hover table-bordered align-middle"><thead class="table-dark"><tr><th>Zgłoszenie</th><th>Kategoria</th><th>Status</th></tr></thead><tbody id="ticketTable">
+                        <tr data-status="Nowe"><td>Problem z logowaniem</td><td>Konto</td><td><span class="badge text-bg-primary">Nowe</span></td></tr>
+                        <tr data-status="W trakcie"><td>Brak dostępu do drukarki</td><td>Sprzęt</td><td><span class="badge text-bg-warning">W trakcie</span></td></tr>
+                        <tr data-status="Zamknięte"><td>Aktualizacja danych ucznia</td><td>Dane</td><td><span class="badge text-bg-success">Zamknięte</span></td></tr>
+                    </tbody></table></div>
+                    <p id="noTickets" class="text-secondary d-none">Brak zgłoszeń spełniających kryteria.</p>
+                </section>
+                <section class="col-12 col-xl-4" id="nowe">
+                    <div class="card"><div class="card-body"><h2 class="h4">Dodaj zgłoszenie</h2>
+                        <form id="ticketForm" class="vstack gap-3">
+                            <div><label class="form-label" for="ticketName">Nazwa zgłoszenia</label><input class="form-control" id="ticketName" required></div>
+                            <div><label class="form-label" for="ticketCategory">Kategoria</label><select class="form-select" id="ticketCategory"><option>Konto</option><option>Sprzęt</option><option>Oprogramowanie</option><option>Dane</option></select></div>
+                            <div><label class="form-label" for="ticketStatus">Status</label><select class="form-select" id="ticketStatus"><option>Nowe</option><option>W trakcie</option><option>Zamknięte</option></select></div>
+                            <button class="btn btn-primary" type="submit">Dodaj zgłoszenie</button>
+                        </form>
+                    </div></div>
+                    <div id="ticketAlert" class="alert alert-success mt-3 d-none" role="alert">Dodano nowe zgłoszenie.</div>
+                </section>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const ticketForm = document.getElementById('ticketForm');
+const ticketTable = document.getElementById('ticketTable');
+const statusColors = { 'Nowe': 'primary', 'W trakcie': 'warning', 'Zamknięte': 'success' };
+function filterTickets() {
+    const query = document.getElementById('ticketSearch').value.trim().toLocaleLowerCase('pl');
+    const status = document.getElementById('statusFilter').value;
+    let visible = 0;
+    ticketTable.querySelectorAll('tr').forEach((row) => {
+        const matchesName = row.cells[0].textContent.toLocaleLowerCase('pl').includes(query);
+        const matchesStatus = status === 'all' || row.dataset.status === status;
+        row.classList.toggle('d-none', !(matchesName && matchesStatus));
+        if (matchesName && matchesStatus) visible += 1;
+    });
+    document.getElementById('noTickets').classList.toggle('d-none', visible > 0);
+}
+document.getElementById('ticketSearch').addEventListener('input', filterTickets);
+document.getElementById('statusFilter').addEventListener('change', filterTickets);
+ticketForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const name = document.getElementById('ticketName').value.trim();
+    const category = document.getElementById('ticketCategory').value;
+    const status = document.getElementById('ticketStatus').value;
+    const row = document.createElement('tr');
+    row.dataset.status = status;
+    const nameCell = document.createElement('td');
+    nameCell.textContent = name;
+    const categoryCell = document.createElement('td');
+    categoryCell.textContent = category;
+    const statusCell = document.createElement('td');
+    const badge = document.createElement('span');
+    badge.className = `badge text-bg-${statusColors[status]}`;
+    badge.textContent = status;
+    statusCell.append(badge);
+    row.append(nameCell, categoryCell, statusCell);
+    ticketTable.prepend(row);
+    document.getElementById('ticketCount').textContent = ticketTable.querySelectorAll('tr').length;
+    ticketForm.reset();
+    document.getElementById('ticketAlert').classList.remove('d-none');
+    filterTickets();
+});
+</script>
+</body>
+</html>

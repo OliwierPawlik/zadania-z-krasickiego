@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Szkolne Koło Programistyczne</title>
+<style>
+#projekty .card-img-top { height: 180px; object-fit: cover; }
+section { scroll-margin-top: 76px; }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#start">Koło IT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#clubNav" aria-controls="clubNav" aria-expanded="false" aria-label="Otwórz menu"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="clubNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#projekty">Projekty</a></li>
+                <li class="nav-item"><a class="nav-link" href="#technologie">Technologie</a></li>
+                <li class="nav-item"><a class="nav-link" href="#harmonogram">Harmonogram</a></li>
+                <li class="nav-item"><a class="nav-link" href="#zapisy">Zapisy</a></li>
+                <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main>
+    <section id="start" class="container py-5">
+        <div class="row align-items-center g-4 py-4">
+            <div class="col-lg-8">
+                <span class="badge text-bg-primary mb-3">Szkolne koło programistyczne</span>
+                <h1 class="display-4 fw-bold">Twórz. Eksperymentuj. Programuj.</h1>
+                <p class="lead my-4">Dołącz do osób, które chcą rozwijać umiejętności IT, pracować nad własnymi pomysłami i dzielić się wiedzą.</p>
+                <a href="#zapisy" class="btn btn-primary btn-lg">Zapisz się do koła</a>
+            </div>
+            <div class="col-lg-4"><div class="bg-primary-subtle rounded-4 p-4 shadow-sm"><div class="display-1 text-center">💻</div><p class="text-center fw-semibold mb-0">Twoje pomysły mogą stać się projektem!</p></div></div>
+        </div>
+    </section>
+    <section id="projekty" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Projekty uczniów</h2>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-lg-3"><article class="card h-100 shadow-sm"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="Kod na ekranie komputera"><div class="card-body"><h3 class="h5">Portfolio</h3><p class="mb-0">Strony prezentujące umiejętności i realizacje uczniów.</p></div></article></div>
+                <div class="col-12 col-sm-6 col-lg-3"><article class="card h-100 shadow-sm"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="Konsola do gier"><div class="card-body"><h3 class="h5">Gra 2D</h3><p class="mb-0">Prosta gra zręcznościowa przygotowana w JavaScript.</p></div></article></div>
+                <div class="col-12 col-sm-6 col-lg-3"><article class="card h-100 shadow-sm"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="Wykresy i analiza danych"><div class="card-body"><h3 class="h5">Analiza danych</h3><p class="mb-0">Projekt wykorzystujący Python do opracowania danych.</p></div></article></div>
+                <div class="col-12 col-sm-6 col-lg-3"><article class="card h-100 shadow-sm"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="Płytka elektroniczna"><div class="card-body"><h3 class="h5">Inteligentny dom</h3><p class="mb-0">Prototyp sterowania oświetleniem z użyciem elektroniki.</p></div></article></div>
+            </div>
+        </div>
+    </section>
+    <section id="technologie" class="container py-5">
+        <h2 class="text-center mb-4">Technologie, których używamy</h2>
+        <div class="row g-3 text-center">
+            <div class="col-6 col-md-4 col-lg-2"><div class="border rounded-3 p-3 h-100"><h3 class="h5 text-primary">HTML</h3><p class="small mb-0">Struktura stron</p></div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="border rounded-3 p-3 h-100"><h3 class="h5 text-primary">CSS</h3><p class="small mb-0">Wygląd stron</p></div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="border rounded-3 p-3 h-100"><h3 class="h5 text-primary">JavaScript</h3><p class="small mb-0">Interakcje</p></div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="border rounded-3 p-3 h-100"><h3 class="h5 text-primary">Python</h3><p class="small mb-0">Aplikacje i dane</p></div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="border rounded-3 p-3 h-100"><h3 class="h5 text-primary">PHP</h3><p class="small mb-0">Backend</p></div></div>
+            <div class="col-6 col-md-4 col-lg-2"><div class="border rounded-3 p-3 h-100"><h3 class="h5 text-primary">SQL</h3><p class="small mb-0">Bazy danych</p></div></div>
+        </div>
+    </section>
+    <section id="harmonogram" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Harmonogram spotkań</h2>
+            <div class="table-responsive"><table class="table table-bordered table-striped table-hover bg-white align-middle"><thead class="table-dark"><tr><th>Dzień</th><th>Godzina</th><th>Temat</th><th>Miejsce</th></tr></thead><tbody>
+                <tr><td>Poniedziałek</td><td>15:00–16:00</td><td>Podstawy tworzenia stron</td><td>Pracownia 12</td></tr>
+                <tr><td>Środa</td><td>15:00–16:00</td><td>JavaScript i projekty</td><td>Pracownia 12</td></tr>
+                <tr><td>Piątek</td><td>14:30–15:30</td><td>Warsztaty i konsultacje</td><td>Pracownia 12</td></tr>
+            </tbody></table></div>
+        </div>
+    </section>
+    <section id="zapisy" class="container py-5">
+        <div class="row justify-content-center"><div class="col-12 col-lg-8">
+            <h2 class="text-center mb-2">Zapisz się do koła</h2>
+            <p class="text-center text-secondary mb-4">Wypełnij formularz, a skontaktujemy się z Tobą.</p>
+            <form id="joinForm" class="row g-3">
+                <div class="col-md-6"><label class="form-label" for="studentName">Imię i nazwisko</label><input class="form-control" id="studentName" required></div>
+                <div class="col-md-6"><label class="form-label" for="studentEmail">E-mail</label><input class="form-control" type="email" id="studentEmail" required></div>
+                <div class="col-md-6"><label class="form-label" for="studentClass">Klasa</label><select class="form-select" id="studentClass" required><option value="" selected disabled>Wybierz klasę</option><option>1 TP</option><option>2 TP</option><option>3 TP</option><option>4 TP</option><option>5 TP</option></select></div>
+                <div class="col-md-6"><label class="form-label" for="interest">Najbardziej interesuje mnie</label><select class="form-select" id="interest"><option>Tworzenie stron</option><option>Programowanie gier</option><option>Aplikacje mobilne</option><option>Robotyka i elektronika</option></select></div>
+                <div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" id="joinConsent" required><label class="form-check-label" for="joinConsent">Wyrażam zgodę na kontakt w sprawie spotkań koła.</label></div></div>
+                <div class="col-12"><button class="btn btn-primary" type="submit">Wyślij zgłoszenie</button></div>
+            </form>
+            <div id="joinSuccess" class="alert alert-success mt-3 d-none" role="status">Dziękujemy! Twoje zgłoszenie zostało przyjęte.</div>
+        </div></div>
+    </section>
+    <section id="faq" class="bg-light py-5">
+        <div class="container"><h2 class="text-center mb-4">FAQ</h2>
+            <div class="accordion" id="clubFaq">
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#clubFaqOne" aria-expanded="true" aria-controls="clubFaqOne">Czy muszę umieć programować?</button></h3><div id="clubFaqOne" class="accordion-collapse collapse show" data-bs-parent="#clubFaq"><div class="accordion-body">Nie. Zaczynamy od podstaw i pomagamy rozwijać umiejętności.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#clubFaqTwo" aria-expanded="false" aria-controls="clubFaqTwo">Czy udział w kole jest płatny?</button></h3><div id="clubFaqTwo" class="accordion-collapse collapse" data-bs-parent="#clubFaq"><div class="accordion-body">Nie. Udział w szkolnym kole programistycznym jest bezpłatny.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#clubFaqThree" aria-expanded="false" aria-controls="clubFaqThree">Czy można pracować nad własnym projektem?</button></h3><div id="clubFaqThree" class="accordion-collapse collapse" data-bs-parent="#clubFaq"><div class="accordion-body">Tak. Możesz rozwijać własny pomysł samodzielnie lub w zespole.</div></div></div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="bg-dark text-white py-4"><div class="container d-flex flex-column flex-md-row justify-content-between gap-2"><div><strong>Szkolne Koło Programistyczne</strong><p class="mb-0">Uczymy się i tworzymy razem.</p></div><div><p class="mb-1">Kontakt: <a class="link-light" href="mailto:kolo@szkola.edu.pl">kolo@szkola.edu.pl</a></p><p class="mb-0">© 2026 Koło IT</p></div></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById('joinForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    document.getElementById('joinSuccess').classList.remove('d-none');
+    event.currentTarget.reset();
+});
+</script>
+</body>
+</html>
